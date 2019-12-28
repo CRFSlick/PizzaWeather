@@ -456,29 +456,29 @@ function getLocation() {
 			var wind_direction = api_response.wind_direction.toString() + "°";
 			var cloud_cover = api_response.cloud_cover.toString() + "%";
 			var precipitation = api_response.precipitation.toString() + " mm";
-			var forecast_weather = api_response.forecast_weather;
-			var forecast_weather_description = api_response.forecast_weather_description;
-			var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
-			var forecast_temperature = api_response.forecast_temperature;
-			var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
-			var forecast_temperature_average = api_response.forecast_temperature_average;
-			var forecast_temperature_high = api_response.forecast_temperature_high;
-			var forecast_temperature_low = api_response.forecast_temperature_low;
-			var forecast_wind_speed = api_response.forecast_wind_speed;
-			var forecast_wind_direction = api_response.forecast_wind_direction;
-			var forecast_cloud_cover = api_response.forecast_cloud_cover;
-			var forecast_precipitation = api_response.forecast_precipitation;
-			var forecast_humidity = api_response.forecast_humidity;
+			// var forecast_weather = api_response.forecast_weather;
+			// var forecast_weather_description = api_response.forecast_weather_description;
+			// var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
+			// var forecast_temperature = api_response.forecast_temperature;
+			// var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
+			// var forecast_temperature_average = api_response.forecast_temperature_average;
+			// var forecast_temperature_high = api_response.forecast_temperature_high;
+			// var forecast_temperature_low = api_response.forecast_temperature_low;
+			// var forecast_wind_speed = api_response.forecast_wind_speed;
+			// var forecast_wind_direction = api_response.forecast_wind_direction;
+			// var forecast_cloud_cover = api_response.forecast_cloud_cover;
+			// var forecast_precipitation = api_response.forecast_precipitation;
+			// var forecast_humidity = api_response.forecast_humidity;
 
-			for (i = 0; i < 7; i++) {
-				let high = kelvinToCelcius(forecast_temperature_high[i]['kelvin'], 1);
-				let low = kelvinToCelcius(forecast_temperature_low[i]['kelvin'], 1);
-				let icon = forecast_weather_icon_url[i]['weather-icon-url'];
+			// for (i = 0; i < 7; i++) {
+			// 	let high = kelvinToCelcius(forecast_temperature_high[i]['kelvin'], 1);
+			// 	let low = kelvinToCelcius(forecast_temperature_low[i]['kelvin'], 1);
+			// 	let icon = forecast_weather_icon_url[i]['weather-icon-url'];
 				
-				$('.forecast.day' + i + '.high').text(high);
-				$('.forecast.day' + i + '.low').text(low);
-				$('.forecast.day' + i + '.icon').attr('src', icon);
-			}
+			// 	$('.forecast.day' + i + '.high').text(high);
+			// 	$('.forecast.day' + i + '.low').text(low);
+			// 	$('.forecast.day' + i + '.icon').attr('src', icon);
+			// }
 		}
 
 		else if (!metric) {
@@ -491,29 +491,29 @@ function getLocation() {
 			var wind_direction = api_response.wind_direction.toString() + "°";
 			var cloud_cover = api_response.cloud_cover.toString() + "%";
 			var precipitation = millimetersToInches(api_response.precipitation).toString() + " in";;
-			var forecast_weather = api_response.forecast_weather;
-			var forecast_weather_description = api_response.forecast_weather_description;
-			var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
-			var forecast_temperature = api_response.forecast_temperature;
-			var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
-			var forecast_temperature_average = api_response.forecast_temperature_average;
-			var forecast_temperature_high = api_response.forecast_temperature_high;
-			var forecast_temperature_low = api_response.forecast_temperature_low;
-			var forecast_wind_speed = api_response.forecast_wind_speed;
-			var forecast_wind_direction = api_response.forecast_wind_direction;
-			var forecast_cloud_cover = api_response.forecast_cloud_cover;
-			var forecast_precipitation = api_response.forecast_precipitation;
-			var forecast_humidity = api_response.forecast_humidity;
+			// var forecast_weather = api_response.forecast_weather;
+			// var forecast_weather_description = api_response.forecast_weather_description;
+			// var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
+			// var forecast_temperature = api_response.forecast_temperature;
+			// var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
+			// var forecast_temperature_average = api_response.forecast_temperature_average;
+			// var forecast_temperature_high = api_response.forecast_temperature_high;
+			// var forecast_temperature_low = api_response.forecast_temperature_low;
+			// var forecast_wind_speed = api_response.forecast_wind_speed;
+			// var forecast_wind_direction = api_response.forecast_wind_direction;
+			// var forecast_cloud_cover = api_response.forecast_cloud_cover;
+			// var forecast_precipitation = api_response.forecast_precipitation;
+			// var forecast_humidity = api_response.forecast_humidity;
 
-			for (i = 0; i < 7; i++) {
-				let high = kelvinToFahrenheit(forecast_temperature_high[i]['kelvin'], 1);
-				let low = kelvinToFahrenheit(forecast_temperature_low[i]['kelvin'], 1);
-				let icon = forecast_weather_icon_url[i]['weather-icon-url'];
+			// for (i = 0; i < 7; i++) {
+			// 	let high = kelvinToFahrenheit(forecast_temperature_high[i]['kelvin'], 1);
+			// 	let low = kelvinToFahrenheit(forecast_temperature_low[i]['kelvin'], 1);
+			// 	let icon = forecast_weather_icon_url[i]['weather-icon-url'];
 				
-				$('.forecast.day' + i + '.high').text(high);
-				$('.forecast.day' + i + '.low').text(low);
-				$('.forecast.day' + i + '.icon').attr('src', icon);
-			}
+			// 	$('.forecast.day' + i + '.high').text(high);
+			// 	$('.forecast.day' + i + '.low').text(low);
+			// 	$('.forecast.day' + i + '.icon').attr('src', icon);
+			// }
 		}
 
 		$('#simple-temp').text(temp_rounded);
@@ -569,29 +569,29 @@ function getLocation() {
 			var radar_pressure = api_response.radar_pressure;
 			var radar_clouds = api_response.radar_clouds;
 			var radar_wind = api_response.radar_wind;
-			var forecast_weather = api_response.forecast_weather;
-			var forecast_weather_description = api_response.forecast_weather_description;
-			var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
-			var forecast_temperature = api_response.forecast_temperature;
-			var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
-			var forecast_temperature_average = api_response.forecast_temperature_average;
-			var forecast_temperature_high = api_response.forecast_temperature_high;
-			var forecast_temperature_low = api_response.forecast_temperature_low;
-			var forecast_wind_speed = api_response.forecast_wind_speed;
-			var forecast_wind_direction = api_response.forecast_wind_direction;
-			var forecast_cloud_cover = api_response.forecast_cloud_cover;
-			var forecast_precipitation = api_response.forecast_precipitation;
-			var forecast_humidity = api_response.forecast_humidity;
+			// var forecast_weather = api_response.forecast_weather;
+			// var forecast_weather_description = api_response.forecast_weather_description;
+			// var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
+			// var forecast_temperature = api_response.forecast_temperature;
+			// var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
+			// var forecast_temperature_average = api_response.forecast_temperature_average;
+			// var forecast_temperature_high = api_response.forecast_temperature_high;
+			// var forecast_temperature_low = api_response.forecast_temperature_low;
+			// var forecast_wind_speed = api_response.forecast_wind_speed;
+			// var forecast_wind_direction = api_response.forecast_wind_direction;
+			// var forecast_cloud_cover = api_response.forecast_cloud_cover;
+			// var forecast_precipitation = api_response.forecast_precipitation;
+			// var forecast_humidity = api_response.forecast_humidity;
 
-			for (i = 0; i < 7; i++) {
-				let high = kelvinToCelcius(forecast_temperature_high[i]['kelvin'], 1);
-				let low = kelvinToCelcius(forecast_temperature_low[i]['kelvin'], 1);
-				let icon = forecast_weather_icon_url[i]['weather-icon-url'];
+			// for (i = 0; i < 7; i++) {
+			// 	let high = kelvinToCelcius(forecast_temperature_high[i]['kelvin'], 1);
+			// 	let low = kelvinToCelcius(forecast_temperature_low[i]['kelvin'], 1);
+			// 	let icon = forecast_weather_icon_url[i]['weather-icon-url'];
 				
-				$('.forecast.day' + i + '.high').text(high);
-				$('.forecast.day' + i + '.low').text(low);
-				$('.forecast.day' + i + '.icon').attr('src', icon);
-			}
+			// 	$('.forecast.day' + i + '.high').text(high);
+			// 	$('.forecast.day' + i + '.low').text(low);
+			// 	$('.forecast.day' + i + '.icon').attr('src', icon);
+			// }
 		}
 
 		else if (!metric) {
@@ -629,29 +629,29 @@ function getLocation() {
 			var radar_pressure = api_response.radar_pressure;
 			var radar_clouds = api_response.radar_clouds;
 			var radar_wind = api_response.radar_wind;
-			var forecast_weather = api_response.forecast_weather;
-			var forecast_weather_description = api_response.forecast_weather_description;
-			var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
-			var forecast_temperature = api_response.forecast_temperature;
-			var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
-			var forecast_temperature_average = api_response.forecast_temperature_average;
-			var forecast_temperature_high = api_response.forecast_temperature_high;
-			var forecast_temperature_low = api_response.forecast_temperature_low;
-			var forecast_wind_speed = api_response.forecast_wind_speed;
-			var forecast_wind_direction = api_response.forecast_wind_direction;
-			var forecast_cloud_cover = api_response.forecast_cloud_cover;
-			var forecast_precipitation = api_response.forecast_precipitation;
-			var forecast_humidity = api_response.forecast_humidity;
+			// var forecast_weather = api_response.forecast_weather;
+			// var forecast_weather_description = api_response.forecast_weather_description;
+			// var forecast_weather_icon_url = api_response.forecast_weather_icon_url;
+			// var forecast_temperature = api_response.forecast_temperature;
+			// var forecast_temperature_rounded = api_response.forecast_temperature_rounded;
+			// var forecast_temperature_average = api_response.forecast_temperature_average;
+			// var forecast_temperature_high = api_response.forecast_temperature_high;
+			// var forecast_temperature_low = api_response.forecast_temperature_low;
+			// var forecast_wind_speed = api_response.forecast_wind_speed;
+			// var forecast_wind_direction = api_response.forecast_wind_direction;
+			// var forecast_cloud_cover = api_response.forecast_cloud_cover;
+			// var forecast_precipitation = api_response.forecast_precipitation;
+			// var forecast_humidity = api_response.forecast_humidity;
 	
-			for (i = 0; i < 7; i++) {
-				let high = kelvinToFahrenheit(forecast_temperature_high[i]['kelvin'], 1);
-				let low = kelvinToFahrenheit(forecast_temperature_low[i]['kelvin'], 1);
-				let icon = forecast_weather_icon_url[i]['weather-icon-url'];
+			// for (i = 0; i < 7; i++) {
+			// 	let high = kelvinToFahrenheit(forecast_temperature_high[i]['kelvin'], 1);
+			// 	let low = kelvinToFahrenheit(forecast_temperature_low[i]['kelvin'], 1);
+			// 	let icon = forecast_weather_icon_url[i]['weather-icon-url'];
 				
-				$('.forecast.day' + i + '.high').text(high);
-				$('.forecast.day' + i + '.low').text(low);
-				$('.forecast.day' + i + '.icon').attr('src', icon);
-			}
+			// 	$('.forecast.day' + i + '.high').text(high);
+			// 	$('.forecast.day' + i + '.low').text(low);
+			// 	$('.forecast.day' + i + '.icon').attr('src', icon);
+			// }
 		}
 
 		$('#simple-location').text(display_name);

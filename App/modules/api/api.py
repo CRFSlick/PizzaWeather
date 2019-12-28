@@ -395,6 +395,11 @@ class API(object):
         """
         Converts lat lon to tile for API use
 
+        Args:
+            latitude (int)
+            longitude (int)
+            zoom (int)
+
         Returns:
             tiles (tuple)
         """
@@ -408,6 +413,9 @@ class API(object):
     def get_radar_urls(self):
         """
         Gets radar URLs
+
+        Args:
+            None
 
         Returns:
             urls (dict)
