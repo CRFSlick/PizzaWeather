@@ -211,6 +211,18 @@ class GeoLocate(object):
                     return {'lat': results[0]['lat'], 'lon': results[0]['lng']}
 
     def rapid_api(self, city, region, country):
+        """
+        Reverse geocodes location to lat / lon for use in other API
+
+        Args:
+            city (str)
+            region (str)
+            country (str)
+
+        Returns:
+            location_info OR None
+        """
+
         city = city.lower().strip()
         country = country.lower().strip()
 
