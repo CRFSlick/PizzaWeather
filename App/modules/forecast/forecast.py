@@ -16,8 +16,8 @@ class Forecast(object):
 
         Args:
             api_key (str): OpenWeather.com api key
-            lat (str): lat
-            lon (str): lon
+            lat (float): lat
+            lon (float): lon
         """
 
         self.api_key = api_key
@@ -26,6 +26,7 @@ class Forecast(object):
         self.lon = lon
         self.days = days
         self._data = None
+        self._country_code = None
 
     @property
     def api_key(self):
@@ -89,7 +90,6 @@ class Forecast(object):
             ValueError: if value is not of type (str)
         """
         self._lon = self.__validate_data(value, 'lon', float)
-        self._country_code = None
 
     @property
     def url_icon(self):

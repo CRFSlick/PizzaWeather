@@ -178,7 +178,7 @@ def get_weather():
     weather_icon_url = api.current_weather_icon_url[0]['weather-icon-url']
     temperature = api.current_temperature_average[0]['kelvin']
     temperature_rounded = api.current_temperature_average[0]['kelvin']
-    temperature_average = api.temperature_average[0]['kelvin']
+    temperature_average = api.current_temperature_average[0]['kelvin']
     temperature_high = api.current_temperature_max[0]['kelvin']
     temperature_low = api.current_temperature_min[0]['kelvin']
     wind_speed = api.current_wind_speed[0]['wind-speed']
@@ -193,20 +193,20 @@ def get_weather():
     radar_pressure = radar_urls['pressure']
     radar_clouds = radar_urls['clouds']
     radar_wind = radar_urls['wind']
-    forecast_weather = api.weather
-    forecast_weather_description = api.weather_description
-    forecast_weather_icon_url = api.weather_icon_url
-    forecast_temperature = api.temperature_average
-    forecast_temperature_rounded = api.temperature_average
-    forecast_temperature_average = api.temperature_average
-    forecast_temperature_high = api.temperature_max
-    forecast_temperature_low = api.temperature_min
-    forecast_wind_speed = api.wind_speed
-    forecast_wind_direction = api.wind_direction
-    forecast_cloud_cover = api.cloud_cover
-    forecast_precipitation = api.precipitation
-    forecast_humidity = api.humidity
-    forecast_uv_index = api.uv_index_today[0]['uv-index']
+    # forecast_weather = api.weather
+    # forecast_weather_description = api.weather_description
+    # forecast_weather_icon_url = api.weather_icon_url
+    # forecast_temperature = api.temperature_average
+    # forecast_temperature_rounded = api.temperature_average
+    # forecast_temperature_average = api.temperature_average
+    # forecast_temperature_high = api.temperature_max
+    # forecast_temperature_low = api.temperature_min
+    # forecast_wind_speed = api.wind_speed
+    # forecast_wind_direction = api.wind_direction
+    # forecast_cloud_cover = api.cloud_cover
+    # forecast_precipitation = api.precipitation
+    # forecast_humidity = api.humidity
+    # forecast_uv_index = api.uv_index_today[0]['uv-index']
 
     data = {
         'lat': lat,
@@ -233,26 +233,26 @@ def get_weather():
         'cloud_cover': cloud_cover,
         'precipitation': precipitation,
         'humidity': humidity,
-        'uv_index': forecast_uv_index,
+        'uv_index': uv_index,
         'radar_base': radar_base,
         'radar_precipitation': radar_precipitation,
         'radar_temperature': radar_temperature,
         'radar_pressure': radar_pressure,
         'radar_clouds': radar_clouds,
-        'radar_wind': radar_wind,
-        'forecast_weather': forecast_weather,
-        'forecast_weather_description': forecast_weather_description,
-        'forecast_weather_icon_url': forecast_weather_icon_url,
-        'forecast_temperature': forecast_temperature,
-        'forecast_temperature_rounded': forecast_temperature_rounded,
-        'forecast_temperature_average': forecast_temperature_average,
-        'forecast_temperature_high': forecast_temperature_high,
-        'forecast_temperature_low': forecast_temperature_low,
-        'forecast_wind_speed': forecast_wind_speed,
-        'forecast_wind_direction': forecast_wind_direction,
-        'forecast_cloud_cover': forecast_cloud_cover,
-        'forecast_precipitation': forecast_precipitation,
-        'forecast_humidity': forecast_humidity
+        'radar_wind': radar_wind
+        # 'forecast_weather': forecast_weather,
+        # 'forecast_weather_description': forecast_weather_description,
+        # 'forecast_weather_icon_url': forecast_weather_icon_url,
+        # 'forecast_temperature': forecast_temperature,
+        # 'forecast_temperature_rounded': forecast_temperature_rounded,
+        # 'forecast_temperature_average': forecast_temperature_average,
+        # 'forecast_temperature_high': forecast_temperature_high,
+        # 'forecast_temperature_low': forecast_temperature_low,
+        # 'forecast_wind_speed': forecast_wind_speed,
+        # 'forecast_wind_direction': forecast_wind_direction,
+        # 'forecast_cloud_cover': forecast_cloud_cover,
+        # 'forecast_precipitation': forecast_precipitation,
+        # 'forecast_humidity': forecast_humidity
     }
 
     print(data)
