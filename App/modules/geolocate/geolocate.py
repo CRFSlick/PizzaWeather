@@ -122,7 +122,7 @@ class GeoLocate(object):
                 display_region = state['abbreviation']
 
                 country_full = self.get_country_name(country)
-                result = self.rapid_api(city, display_region, country)
+                result = self.forward_geocode(city, display_region, country)
 
                 if result:
                     lat = result['lat']
@@ -147,7 +147,7 @@ class GeoLocate(object):
                                 region.lower():
                             display_region = state['abbreviation']
 
-                    result = self.rapid_api(city, None, display_region)
+                    result = self.forward_geocode(city, None, display_region)
 
                     if result:
                         lat = result['lat']
@@ -163,7 +163,7 @@ class GeoLocate(object):
                                 'region': display_region, 'country': country_full, 'lat': lat, 'lon': lon}
 
                 else:
-                    result = self.rapid_api(city, None, display_region)
+                    result = self.forward_geocode(city, None, display_region)
 
                     if result:
                         lat = result['lat']
@@ -210,13 +210,14 @@ class GeoLocate(object):
                 if len(results) == 1:
                     return {'lat': results[0]['lat'], 'lon': results[0]['lng']}
 
-    def rapid_api(self, city, region, country):
+    @staticmethod
+    def forward_geocode(city, region, country):
         """
-        Reverse geocodes location to lat / lon for use in other API
+        Forward geocodes location to lat / lon for use in other API
 
         Args:
             city (str)
-            region (str)
+            region (str or None)
             country (str)
 
         Returns:
@@ -266,3 +267,47 @@ class GeoLocate(object):
                                 'lat': lat, 'lon': lon}
 
                 count += 1
+
+    @staticmethod
+    def reverse_geocode(lat, lon):
+        """
+        Reverse geocodes location to lat / lon for use in other API
+
+        Args:
+            lat (float)
+            lon (float)
+        Returns:
+            location_info OR None
+        """
+
+        url = 'http://open.mapquestapi.com/geocoding/v1/address'
+
+        params = {
+            'key': app.config['RAPID_API_KEY'],
+            'location': f'{lat}, {lon}'
+        }
+
+        r = requests.get(url=url, params=params)
+
+        if r.status_code == 200:
+            data = json.loads(r.text)
+
+            if data['results'][0]['locations'][0]:
+                city_name = data['results'][0]['locations'][0]['adminArea5'].strip()
+                region_name = data['results'][0]['locations'][0]['adminArea3'].strip()
+                country_name = data['results'][0]['locations'][0]['adminArea1'].strip()
+                lat = data['results'][0]['locations'][0]['latLng']['lat']
+                lon = data['results'][0]['locations'][0]['latLng']['lng']
+
+                # DEBUG OUTPUT
+                # print(data['results'][0]['locations'])
+                # print(f'{city_name}: {city}')
+                # print(f'{region_name}: {region}')
+                # print(f'{country_name}: {country}')
+
+                if country_name == 'US':
+                    return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
+                            'display_name': f'{city_name}, {region_name}', 'lat': lat, 'lon': lon}
+                else:
+                    return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
+                            'display_name': f'{city_name}, {country_name}', 'lat': lat, 'lon': lon}
