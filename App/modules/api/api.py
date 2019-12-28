@@ -20,7 +20,7 @@ class API(object):
         self.forecast_obj = Forecast(api_key=self.api_key, lat=self.lat, lon=self.lon, days=days)
         self.forecast_obj.fetch_forecast()
 
-        self.uv_obj = UVI(appid=api_key, lat=self.lat, lon=self.lon, cnt=1)
+        self.uv_obj = UVI(api_key=api_key, lat=self.lat, lon=self.lon, cnt=1)
         # self.radar_obj = Base(api_key=api_key, city='Something, since apparently this is required but never used...')
 
     @property
