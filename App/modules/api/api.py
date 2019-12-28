@@ -1,6 +1,6 @@
 from App.modules.forecast.forecast import Forecast
 from App.modules.current.current import Current
-from App.modules.UV_Index.UV_Index import UVI
+from App.modules.uv_index.uv_index import UVI
 from App.modules.log.log import Log
 # import zipcodes
 import math
