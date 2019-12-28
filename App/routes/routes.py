@@ -5,9 +5,6 @@ from App.modules.helper.helper import get_local_time
 from App.modules.helper.helper import get_local_date
 from App.modules.api.api import API
 from App import app
-# import reverse_geocoder as rg
-import sys
-import os
 
 main = Blueprint('main', __name__)
 
@@ -146,24 +143,3 @@ def locate():
 @main.errorhandler(404)
 def page_not_found(e):
     return render_template('404-2.html'), 404
-
-
-def block_print():
-    sys.stdout = open(os.devnull, 'w')
-
-
-def enable_print():
-    sys.stdout = sys.__stdout__
-
-
-def convert_odict_to_dict(odict):
-    dict = {}
-    for key, value in odict.items():
-        dict[key] = value
-
-    if dict['cc'].lower() == 'us':
-        dict['display_name'] = f'{dict["name"]}, {dict["admin1"]}'
-    else:
-        dict['display_name'] = f'{dict["name"]}, {dict["cc"]}'
-
-    return dict
