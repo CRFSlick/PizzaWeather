@@ -186,7 +186,7 @@ def get_weather():
     cloud_cover = api.current_cloud_cover[0]['cloud-cover']
     precipitation = api.current_precipitation[0]['precipitation']
     humidity = api.current_humidity[0]['humidity']
-    uv_index = api.uv_index_today[0]['uv-index']
+    # uv_index = api.uv_index_today[0]['uv-index']
     radar_base = radar_urls['base']
     radar_precipitation = radar_urls['precipitation']
     radar_temperature = radar_urls['temperature']
@@ -233,7 +233,7 @@ def get_weather():
         'cloud_cover': cloud_cover,
         'precipitation': precipitation,
         'humidity': humidity,
-        'uv_index': uv_index,
+        'uv_index': None,
         'radar_base': radar_base,
         'radar_precipitation': radar_precipitation,
         'radar_temperature': radar_temperature,
