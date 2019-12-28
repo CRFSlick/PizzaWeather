@@ -2,7 +2,6 @@ from App.modules.forecast.forecast import Forecast
 from App.modules.current.current import Current
 from App.modules.uv_index.uv_index import UVI
 from App.modules.log.log import Log
-# import zipcodes
 import math
 
 
@@ -21,7 +20,6 @@ class API(object):
         self.forecast_obj.fetch_forecast()
 
         self.uv_obj = UVI(api_key=api_key, lat=self.lat, lon=self.lon, cnt=1)
-        # self.radar_obj = Base(api_key=api_key, city='Something, since apparently this is required but never used...')
 
     @property
     def api_key(self):
@@ -152,17 +150,6 @@ class API(object):
             return self.uv_obj
         else:
             raise ValueError("you must instantiate the 'UV' class first!")
-
-    # @property
-    # def _radar_obj(self):
-    #     """
-    #     Returns:
-    #         api_key (str)
-    #     """
-    #     if self.radar_obj:
-    #         return self.radar_obj
-    #     else:
-    #         raise ValueError("you must instantiate the 'Radar' class first!")
 
     @property
     def current_sunrise(self):
