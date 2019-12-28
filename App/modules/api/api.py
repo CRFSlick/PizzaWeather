@@ -1,13 +1,9 @@
 from App.modules.forecast.forecast import Forecast
 from App.modules.current.current import Current
 from App.modules.UV_Index.UV_Index import UVI
-# from App.resources.py.us_states import *
-# from App.modules.maps.base import Base
 from App.modules.log.log import Log
 # import zipcodes
 import math
-import json
-import os
 
 
 class API(object):
@@ -58,7 +54,6 @@ class API(object):
             zip_code (str)
         """
         self._zip_code = value
-
 
     @property
     def city(self):
@@ -158,19 +153,25 @@ class API(object):
         else:
             raise ValueError("you must instantiate the 'UV' class first!")
 
-    @property
-    def _radar_obj(self):
-        """
-        Returns:
-            api_key (str)
-        """
-        if self.radar_obj:
-            return self.radar_obj
-        else:
-            raise ValueError("you must instantiate the 'Radar' class first!")
+    # @property
+    # def _radar_obj(self):
+    #     """
+    #     Returns:
+    #         api_key (str)
+    #     """
+    #     if self.radar_obj:
+    #         return self.radar_obj
+    #     else:
+    #         raise ValueError("you must instantiate the 'Radar' class first!")
 
     @property
     def current_sunrise(self):
+        """
+        Gets current prediction of local sunrise time
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.sunrise()
         for day in data:
@@ -179,6 +180,12 @@ class API(object):
 
     @property
     def current_sunset(self):
+        """
+        Gets current prediction of local sunset time
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.sunset()
         for day in data:
@@ -187,6 +194,12 @@ class API(object):
 
     @property
     def current_timezone_offset(self):
+        """
+        Gets timezone offset for displaying
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.timezone_offset()
         for day in data:
@@ -195,6 +208,12 @@ class API(object):
 
     @property
     def current_weather(self):
+        """
+        Gets current weather forecast
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.weather()
         for day in data:
@@ -203,6 +222,12 @@ class API(object):
 
     @property
     def current_weather_description(self):
+        """
+        Gets current weather forecast description
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.weather()
         for day in data:
@@ -211,6 +236,12 @@ class API(object):
 
     @property
     def current_weather_icon_url(self):
+        """
+        Gets URL for weather icon
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.weather()
         for day in data:
@@ -219,6 +250,12 @@ class API(object):
 
     @property
     def current_temperature_average(self):
+        """
+        Gets current temperature average
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.temperature()
         for day in data:
@@ -232,6 +269,12 @@ class API(object):
 
     @property
     def current_temperature_min(self):
+        """
+        Gets current temperature min
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.temperature()
         for day in data:
@@ -245,6 +288,12 @@ class API(object):
 
     @property
     def current_temperature_max(self):
+        """
+        Gets current temperature max
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.temperature()
         for day in data:
@@ -258,6 +307,12 @@ class API(object):
 
     @property
     def current_humidity(self):
+        """
+        Gets current humidity
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.humidity()
         for day in data:
@@ -266,6 +321,12 @@ class API(object):
 
     @property
     def current_wind_speed(self):
+        """
+        Gets current wind speed
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.wind()
         for day in data:
@@ -274,6 +335,12 @@ class API(object):
 
     @property
     def current_wind_direction(self):
+        """
+        Gets current wind direction
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.wind()
         for day in data:
@@ -282,6 +349,12 @@ class API(object):
 
     @property
     def current_cloud_cover(self):
+        """
+        Gets current cloud cover
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.cloud_cover()
         for day in data:
@@ -290,6 +363,12 @@ class API(object):
 
     @property
     def current_precipitation(self):
+        """
+        Gets current precipitation
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._current_obj.precipitation()
         for day in data:
@@ -297,111 +376,13 @@ class API(object):
         return main
 
     @property
-    def weather(self):
-        main = {}
-        data = self._forecast_obj.weather()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'weather': data[day][1][0]}
-        return main
-
-    @property
-    def weather_description(self):
-        main = {}
-        data = self._forecast_obj.weather()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'weather-description': data[day][1][1]}
-        return main
-
-    @property
-    def weather_icon_url(self):
-        main = {}
-        data = self._forecast_obj.weather()
-        print(data)
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'weather-icon-url': data[day][1][2]}
-        return main
-
-    @property
-    def temperature_average(self):
-        main = {}
-        data = self._forecast_obj.temperature()
-        for day in data:
-            dt = data[day][0]
-            kelvin = round(data[day][1][0], 2)
-            celsius = round(self.kelvin_to_celsius(kelvin), 2)
-            fahrenheit = round(self.kelvin_to_fahrenheit(kelvin), 2)
-            main[day] = {'datetime': dt, 'celsius': f'{celsius}', 'fahrenheit':
-                f'{fahrenheit}', 'kelvin': f'{kelvin}'}
-        return main
-
-    @property
-    def temperature_min(self):
-        main = {}
-        data = self._forecast_obj.temperature()
-        for day in data:
-            dt = data[day][0]
-            kelvin = round(data[day][1][0], 2)
-            celsius = round(self.kelvin_to_celsius(kelvin), 2)
-            fahrenheit = round(self.kelvin_to_fahrenheit(kelvin), 2)
-            main[day] = {'datetime': dt, 'celsius': f'{celsius}', 'fahrenheit':
-                f'{fahrenheit}', 'kelvin': f'{kelvin}'}
-        return main
-
-    @property
-    def temperature_max(self):
-        main = {}
-        data = self._forecast_obj.temperature()
-        for day in data:
-            dt = data[day][0]
-            kelvin = round(data[day][1][0], 2)
-            celsius = round(self.kelvin_to_celsius(kelvin), 2)
-            fahrenheit = round(self.kelvin_to_fahrenheit(kelvin), 2)
-            main[day] = {'datetime': dt, 'celsius': f'{celsius}', 'fahrenheit':
-                f'{fahrenheit}', 'kelvin': f'{kelvin}'}
-        return main
-
-    @property
-    def humidity(self):
-        main = {}
-        data = self._forecast_obj.humidity()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'humidity': data[day][1]}
-        return main
-
-    @property
-    def wind_speed(self):
-        main = {}
-        data = self._forecast_obj.wind()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'wind-speed': data[day][1][0]}
-        return main
-
-    @property
-    def wind_direction(self):
-        main = {}
-        data = self._forecast_obj.wind()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'wind-direction': data[day][1][1]}
-        return main
-
-    @property
-    def cloud_cover(self):
-        main = {}
-        data = self._forecast_obj.cloud_cover()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'cloud-cover': data[day][1]}
-        return main
-
-    @property
-    def precipitation(self):
-        main = {}
-        data = self._forecast_obj.precipitation()
-        for day in data:
-            main[day] = {'datetime': data[day][0], 'precipitation': data[day][1]}
-        return main
-
-    @property
     def uv_index_today(self):
+        """
+        Gets current UV index
+
+        Returns:
+            main (dict)
+        """
         main = {}
         data = self._uv_obj.get_json()
         for i in data:
@@ -410,15 +391,13 @@ class API(object):
         return None
 
     @staticmethod
-    def kelvin_to_celsius(kelvin):
-        return kelvin - 273.15
-
-    @staticmethod
-    def kelvin_to_fahrenheit(kelvin):
-        return (kelvin - 273.15) * 9/5 + 32
-
-    @staticmethod
     def convert_to_tile(latitude, longitude, zoom):
+        """
+        Converts lat lon to tile for API use
+
+        Returns:
+            tiles (tuple)
+        """
         lat_rad = math.radians(latitude)
         n = 2.0 ** zoom
         xtile = int((longitude + 180.0) / 360.0 * n)
@@ -427,6 +406,12 @@ class API(object):
         return tiles
 
     def get_radar_urls(self):
+        """
+        Gets radar URLs
+
+        Returns:
+            urls (dict)
+        """
         zoom = 8
         urls = {}
         layers = {'precipitation': 'precipitation_new',
@@ -447,4 +432,10 @@ class API(object):
 
         return urls
 
+    @staticmethod
+    def kelvin_to_celsius(kelvin):
+        return kelvin - 273.15
 
+    @staticmethod
+    def kelvin_to_fahrenheit(kelvin):
+        return (kelvin - 273.15) * 9/5 + 32
