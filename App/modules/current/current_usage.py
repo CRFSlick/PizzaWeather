@@ -1,5 +1,5 @@
 #from App.modules.current.current import Current
-from App.routes import app
+from App.routes.routes import app
 from current import Current
 api_key = app.config['OPENWEATHERMAP_API_KEY']
 # city = 'Chicago'

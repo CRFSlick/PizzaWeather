@@ -4,6 +4,6 @@ from App.config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 
-from App.routes import main
+from App.routes.routes import main
 
 app.register_blueprint(main)
