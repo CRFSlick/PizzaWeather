@@ -15,11 +15,11 @@
     crossorigin="anonymous"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet"> -->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
+  <!-- FontAwesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/71dfc51b7d.js" crossorigin="anonymous"></script>
 
   <!-- JQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -27,16 +27,13 @@
 
   <!-- Custom CSS -->
   <link href="../static/css/styles.css" rel="stylesheet">
-  <link href="../static/css/fontawesome/css/all.css" rel="stylesheet">
 
   <!-- Custom JS -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js"></script>
 
@@ -64,9 +61,6 @@
           <li class="nav-item page-nav settings non-active">
             <a class="nav-link">Settings</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -76,9 +70,6 @@
       <div id="titleCard" class="row justify-content-center">
         <div class="col-md-7">
           <h1 id="titleCard-title" class="font-weight-light mt-4">A Pizza WeatherApp</h1>
-          <!-- <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div> -->
           <p id="titleCard-desc" class="lead">Freshly baked weather data! Just don't eat it all at once...</p>
         </div>
       </div>
@@ -93,7 +84,6 @@
               <div class="col">
                 <input id="searchInput" class="form-control form-control-lg form-control-borderless" type="search"
                   placeholder="Zip Code or Location">
-                  <!-- placeholder="Zip Code or Location (City, State) or (City, Country)" -->
               </div>
               <div class="col-auto locate">
                 <button id="locateButton" class="btn btn-lg btn-link"><i class="fas fa-location-arrow"></i></button>
@@ -106,16 +96,16 @@
         </div>
       </div>
       <br>
-      <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"><strong id="alert"></strong><span id="msg"></span></div>
-      <div id="warningAlert" class="alert alert-warning" role="alert" style="display:none;"><strong id="alert"></strong><span id="msg"></span></div>
-      <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"><strong id="alert"></strong><span id="msg"></span></div>
+      <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"><strong
+          id="alert"></strong><span id="msg"></span></div>
+      <div id="warningAlert" class="alert alert-warning" role="alert" style="display:none;"><strong
+          id="alert"></strong><span id="msg"></span></div>
+      <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"><strong
+          id="alert"></strong><span id="msg"></span></div>
       <div id="moreCard" class="card weather-card" style="display:none;">
         <div class="card-header font-weight-bold" id="simple-location" style="font-size: 2em; text-align: center;">
         </div>
         <div class="card-body pb-3">
-          <!-- <h4 id="simple-location" class="card-title font-weight-bold" style="font-size: 2em;"></h4> -->
-          <!-- <hr class=""> -->
-          <!-- <h4 class="card-title font-weight-bold" style="font-size: 2em; padding-top: .5em;"> -->
           <h4 class="card-title font-weight-bold" style="font-size: 2em;">
             <div style="display: inline-block; height: 100%">
               <img id="simple-weather-icon" src=""
@@ -221,16 +211,12 @@
                           <li class="nav-item">
                             <a id="card-right-nav-tab-location" class="nav-link card-nav right non-active">Location</a>
                           </li>
-                          <!-- <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                              </li> -->
                         </ul>
                       </div>
                       <div class="card-body pb-3">
                         <div id="card-right-radar" class="card-contents right radar">
                           <h4 class="card-title font-weight-bold" style="font-size: 1.5em;">Radar Image</h4>
                           <hr class="">
-                          <!-- <div> -->
                           <div class="radar-image">
                             <img class="base base" src="" src="" alt="img">
                             <img class="layer precipitation" style="display: none;" src="" alt="">
@@ -271,11 +257,6 @@
     </div>
     <br>
   </div>
-
-
-
-
-
   <div id="page-content" class="page-container about" style="display: none;">
     <div class="container text-center">
       <div id="titleCard" class="row justify-content-center">
@@ -285,10 +266,8 @@
         </div>
       </div>
     </div>
-    <!-- <div style="text-align: center;"> -->
     <div class="container">
       <div class="card" style="margin:20px 0">
-        <!-- Default panel contents -->
         <div class="card-header" style="font-size: 1.5em; text-align: center;">About Pizza WeatherApp</div>
         <div class="card-body pb-3">
           <p class="card-text font-weight-bold" style="text-align: center;">Why Pizza?</p>
@@ -309,23 +288,21 @@
           </p>
           <p style="text-align: center;">
             <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a><br>
-            <a href="https://developer.mapquest.com/documentation/open/geocoding-api/" target="_blank">MapQuest Developer Geolocation API</a>
+            <a href="https://developer.mapquest.com/documentation/open/geocoding-api/" target="_blank">MapQuest
+              Developer Geolocation API</a>
           </p>
           <br>
           <hr class="">
           <p class="card-text font-weight-bold" style="text-align: center;">Sources Used</p>
           <p style="text-align: center;">
             <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a><br>
-            <a href="https://developer.mapquest.com/documentation/open/geocoding-api/" target="_blank">MapQuest Developer Geolocation API</a>
+            <a href="https://developer.mapquest.com/documentation/open/geocoding-api/" target="_blank">MapQuest
+              Developer Geolocation API</a>
           </p>
         </div>
       </div>
-      <!-- </div> -->
     </div>
   </div>
-
-
-
   <div id="page-content" class="page-container usage" style="display: none;">
     <div class="container text-center">
       <div id="titleCard" class="row justify-content-center">
@@ -335,10 +312,8 @@
         </div>
       </div>
     </div>
-    <!-- <div style="text-align: center;"> -->
     <div class="container">
       <div class="card" style="margin:20px 0">
-        <!-- Default panel contents -->
         <div class="card-header" style="font-size: 1.5em; text-align: center;">Using Pizza WeatherApp</div>
         <div class="card-body pb-3">
           <p class="card-text font-weight-bold" style="text-align: center;">Input Format</p>
@@ -347,43 +322,11 @@
             module, but I made sure that there were a few different ways to enter your data
             so that, hopefully, I can make everyone happy. Here is a list of the possible formats.
           </p>
-          <!-- <p class="card-text">
-              United States
-            </p>
-          <ul>
-            <li>[Zip Code]</li>
-            <li>[City, State]</li>
-            <li>[City, Country]</li>
-          </ul>
-          <p class="card-text">
-              International
-            </p>
-          <ul>
-            <li>[City, Country]</li>
-          </ul>
-          <p class="card-text">
-              Examples of Valid Input
-            </p>
-          <ul>
-            <li>60604</li>
-            <li>Chicago, IL</li>
-            <li>Chicago, Illinois</li>
-            <li>Chicago, US</li>
-            <li>Chicago, United States of America</li>
-          </ul>
-          <p class="card-text">
-              International
-            </p>
-          <ul>
-              <li>Paris, FR</li>
-              <li>Paris, France</li>
-          </ul> -->
           <br>
           <div class="container">
             <div class="row grid-divider">
               <div class="col-sm content-left">
                 <div id="card-left" class="card left" style="height:100%; min-width: 300px;">
-                  <!-- <div class="card-header" style="font-size: 1em; text-align: center;">Valid Input Formats</div> -->
                   <div class="card-body pb-3">
                     <div>
                       <h4 class="card-title font-weight-bold" style="font-size: 1em;">Valid Input Formats</h4>
@@ -411,13 +354,6 @@
               </div>
               <div class="col-sm">
                 <div id="card-right" class="card right" style="height:100%; min-width: 300px;">
-                  <!-- <div class="card-header">
-                      <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                          <a id="card-right-nav-tab-forecast" class="nav-link card-nav right active">Forecast</a>
-                        </li>
-                      </ul>
-                    </div> -->
                   <div class="card-body pb-3">
                     <div>
                       <h4 class="card-title font-weight-bold" style="font-size: 1em;">Valid Input Examples</h4>
@@ -447,62 +383,21 @@
           </div>
         </div>
       </div>
-      <!-- <hr class=""> -->
-      <!-- <p class="card-text font-weight-bold" style="text-align: center;">API's</p>
-          <p class="card-text">
-            &emsp; This application was made as an object oriented programming project focusing on linking a back end
-            python program to a front end, in this case, a web based front end.
-            This whole project is made possible thanks to the following free to use API's.
-          </p> -->
-      <!-- <p style="text-align: center;">
-            <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>
-            <br>
-            <a href="https://rapidapi.com/dev132/api/city-geo-location-lookup" target="_blank">Dev123's Geolocation
-              API</a>
-          </p> -->
     </div>
   </div>
-  <!-- </div> -->
-  </div>
-  </div>
-
-
-
-
-
-
-
   <div id="page-content" class="page-container settings" style="display: none;">
     <div class="container text-center">
       <div id="titleCard" class="row justify-content-center">
         <div class="col-md-7">
           <h1 id="titleCard-title" class="font-weight-light mt-4">A Pizza WeatherApp</h1>
           <p id="titleCard-desc" class="lead">Freshly baked weather data! Just don't eat it all at once...</p>
-          <!-- <p id="titleCard-desc" class="lead">Freshly baked weather data! Just don't eat it all at once...</p> -->
         </div>
       </div>
     </div>
-    <!-- <div style="text-align: center;"> -->
     <div class="container">
       <div class="card" style="margin:20px 0">
-        <!-- Default panel contents -->
         <div class="card-header" style="font-size: 1.5em; text-align: center;">Settings</div>
-
         <ul class="list-group list-group-flush">
-          <!-- <li class="list-group-item">
-                    <span>Data Unit Type</span>
-                    <div class="btn-group btn-toggle" style="float: right;"> 
-                        <button class="btn btn-default" data-toggle="collapse" data-target="#collapsible">Metric</button>
-                        <button class="btn btn-primary active" data-toggle="collapse" data-target="#collapsible">US</button>
-                      </div>
-                  </li> -->
-          <!-- <li class="list-group-item">
-            <span>Metric</span>
-            <label class="switch ">
-              <input type="checkbox" class="default">
-              <span class="slider round"></span>
-            </label>
-          </li> -->
           <li class="list-group-item">
             <span style="display: inline-block; padding-top: 10px; padding-bottom: 10px;">Display data in Metric</span>
             <label class="switch ">
@@ -511,53 +406,17 @@
             </label>
           </li>
           <li class="list-group-item">
-            <span style="display: inline-block; padding-top: 10px; padding-bottom: 10px;">Allow the use of Cookies</span>
+            <span style="display: inline-block; padding-top: 10px; padding-bottom: 10px;">Allow the use of
+              Cookies</span>
             <label class="switch ">
               <input id="slider-cookies" type="checkbox" class="primary" checked>
               <span class="slider round"></span>
             </label>
           </li>
-          <!-- <li class="list-group-item">
-            <span>Option 3</span>
-            <label class="switch ">
-              <input type="checkbox" class="success">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li class="list-group-item">
-            <span>Option 4</span>
-            <label class="switch ">
-              <input type="checkbox" class="info">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li class="list-group-item">
-            <span>Option 5</span>
-            <label class="switch ">
-              <input type="checkbox" class="warning">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li class="list-group-item">
-            <span>Option 6</span>
-            <label class="switch ">
-              <input type="checkbox" class="danger">
-              <span class="slider round"></span>
-            </label>
-          </li> -->
         </ul>
       </div>
-      <!-- </div> -->
     </div>
   </div>
-
-
-
-
-
-
-
-
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">
       <small>Copyright &copy; PizzaWeatherApp</small>

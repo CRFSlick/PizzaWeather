@@ -642,13 +642,6 @@ function displayData(api_response) {
 	$('#radar-city').text(city);
 	$('#radar-region').text(region);
 	$('#radar-country').text(country);
-	// $('.base.base').attr('src', 'none');
-	// $('.base.base').attr('src', radar_base);
-	// $('.layer.precipitation').attr('src', radar_precipitation);
-	// $('.layer.temperature').attr('src', radar_temperature);
-	// $('.layer.pressure').attr('src', radar_pressure);
-	// $('.layer.clouds').attr('src', radar_clouds);
-	// $('.layer.wind').attr('src', radar_wind);
 
 
 	$('.base.base').attr('src', 'none');
