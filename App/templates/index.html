@@ -180,12 +180,6 @@
                           <li class="nav-item">
                             <a id="card-left-nav-tab-datetime" class="nav-link card-nav left non-active">Datetime</a>
                           </li>
-                          <li class="nav-item">
-                            <a id="card-left-nav-tab-location" class="nav-link card-nav left non-active">Location</a>
-                          </li>
-                          <!-- <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                              </li> -->
                         </ul>
                       </div>
                       <div class="card-body pb-3">
@@ -214,15 +208,6 @@
                           <p class="card-text">Sunrise: <span id="desc-dt-sunrise">None</span></p>
                           <p class="card-text">Sunset: <span id="desc-dt-sunset">None</span></p>
                         </div>
-                        <div id="card-left-location" class="card-contents left location" style="display: none;">
-                          <h4 class="card-title font-weight-bold" style="font-size: 1.5em;">Location Information</h4>
-                          <hr class="">
-                          <p class="card-text">Lat: <span id="radar-lat">None</span></p>
-                          <p class="card-text">Lon: <span id="radar-lon">None</span></p>
-                          <p class="card-text">City: <span id="radar-city">None</span></p>
-                          <p class="card-text">Region: <span id="radar-region">None</span></p>
-                          <p class="card-text">Country: <span id="radar-country">None</span></p>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -231,10 +216,10 @@
                       <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
                           <li class="nav-item">
-                            <a id="card-right-nav-tab-forecast" class="nav-link card-nav right active">Forecast</a>
+                            <a id="card-right-nav-tab-radar" class="nav-link card-nav right active">Radar</a>
                           </li>
                           <li class="nav-item">
-                            <a id="card-right-nav-tab-radar" class="nav-link card-nav right non-active">Radar</a>
+                            <a id="card-right-nav-tab-location" class="nav-link card-nav right non-active">Location</a>
                           </li>
                           <!-- <li class="nav-item">
                                 <a class="nav-link disabled" href="#">Disabled</a>
@@ -242,7 +227,7 @@
                         </ul>
                       </div>
                       <div class="card-body pb-3">
-                        <div id="card-right-radar" class="card-contents right radar" style="display: none;">
+                        <div id="card-right-radar" class="card-contents right radar">
                           <h4 class="card-title font-weight-bold" style="font-size: 1.5em;">Radar Image</h4>
                           <hr class="">
                           <!-- <div> -->
@@ -262,97 +247,14 @@
                           <button class="btn btn-default btn-block radar-button" type="button">Wind</button>
                           <button class="btn btn-default btn-block radar-button" type="button">None</button>
                         </div>
-                        <div id="card-right-forecast" class="card-contents right forecast">
-                          <h4 class="card-title font-weight-bold" style="font-size: 1.5em;">7-Day Forecast</h4>
+                        <div id="card-right-location" class="card-contents right location" style="display: none;">
+                          <h4 class="card-title font-weight-bold" style="font-size: 1.5em;">Location Information</h4>
                           <hr class="">
-                          <table class="table table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr class="border_bottom first">
-                                <td class="forecast-day font-weight-normal">Tuesday</td>
-                                <td class="font-weight-normal" style="width: 0;">
-                                  <p class="mb-1">24&deg;<span class="text-muted">/12&deg;</span></p>
-                                </td>
-                                <td class="mr-3" style="width: 0;">
-                                  <i class="fas fa-sun fa-lg amber-text"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Tuesday</td>
-                                <td class="font-weight-normal" style="width: 0;">
-                                  <p class="mb-1">24&deg;<span class="text-muted">/12&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-sun fa-lg amber-text"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Wednesday</td>
-                                <td class="font-weight-normal">
-                                  <p class="mb-1">19&deg;<span class="text-muted">/10&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-cloud-sun-rain fa-lg text-info"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Thursday</td>
-                                <td class="font-weight-normal">
-                                  <p class="mb-1">23&deg;<span class="text-muted">/15&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-sun fa-lg amber-text"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Friday</td>
-                                <td class="font-weight-normal">
-                                  <p class="mb-1">26&deg;<span class="text-muted">/19&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-sun fa-lg amber-text"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Saturday</td>
-                                <td class="font-weight-normal">
-                                  <p class="mb-1">20&deg;<span class="text-muted">/16&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-cloud fa-lg text-info"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                              <tr class="border_bottom">
-                                <td class="forecast-day font-weight-normal">Sunday</td>
-                                <td class="font-weight-normal">
-                                  <p class="mb-1">22&deg;<span class="text-muted">/13&deg;</span></p>
-                                </td>
-                                <td class="mr-3">
-                                  <i class="fas fa-cloud-sun fa-lg text-info"></i>
-                                </td>
-                                <td style="width: 0;">
-                                  <button type="button" class="btn btn-default">More</button>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <p class="card-text">Lat: <span id="radar-lat">None</span></p>
+                          <p class="card-text">Lon: <span id="radar-lon">None</span></p>
+                          <p class="card-text">City: <span id="radar-city">None</span></p>
+                          <p class="card-text">Region: <span id="radar-region">None</span></p>
+                          <p class="card-text">Country: <span id="radar-country">None</span></p>
                         </div>
                       </div>
                     </div>
