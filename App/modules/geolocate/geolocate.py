@@ -301,9 +301,9 @@ class GeoLocate(object):
 
                 # DEBUG OUTPUT
                 # print(data['results'][0]['locations'])
-                # print(f'{city_name}: {city}')
-                # print(f'{region_name}: {region}')
-                # print(f'{country_name}: {country}')
+                # print(f'{city_name}')
+                # print(f'{region_name}')
+                # print(f'{country_name}')
 
                 if country_name == 'US':
                     return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
@@ -311,3 +311,49 @@ class GeoLocate(object):
                 else:
                     return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
                             'display_name': f'{city_name}, {country_name}', 'lat': lat, 'lon': lon}
+
+    @staticmethod
+    def zip_geocode(zip_code):
+        """
+        Forward geocodes location to lat / lon for use in other API
+
+        Args:
+            zip_code (int)
+
+        Returns:
+            location_info OR None
+        """
+
+        url = 'http://open.mapquestapi.com/geocoding/v1/address'
+
+        params = {
+            'key': app.config['RAPID_API_KEY'],
+            'location': f'{zip_code}'
+        }
+
+        r = requests.get(url=url, params=params)
+
+        if r.status_code == 200:
+            data = json.loads(r.text)
+
+            if data['results'][0]['locations'][0]:
+                city_name = data['results'][0]['locations'][0]['adminArea5'].strip()
+                region_name = data['results'][0]['locations'][0]['adminArea3'].strip()
+                country_name = data['results'][0]['locations'][0]['adminArea1'].strip()
+                lat = data['results'][0]['locations'][0]['latLng']['lat']
+                lon = data['results'][0]['locations'][0]['latLng']['lng']
+
+                # DEBUG OUTPUT
+                print(data['results'][0]['locations'])
+                print(f'{city_name}')
+                print(f'{region_name}')
+                print(f'{country_name}')
+
+                if city_name != '' and region_name != '' and country_name != '':
+
+                    if country_name == 'US':
+                        return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
+                                'display_name': f'{city_name}, {region_name}', 'lat': lat, 'lon': lon}
+                    else:
+                        return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
+                                'display_name': f'{city_name}, {country_name}', 'lat': lat, 'lon': lon}

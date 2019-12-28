@@ -28,13 +28,8 @@ def get_weather():
         city = user_input[0].strip(' ').lower()
         region = user_input[1].strip(' ').lower()
     else:
-        try:
-            zip_code = int(user_input)
-            return jsonify({'error': 'Programmer Error',
-                            'error_msg': f'Your input {zip_code} was a zip code! Too bad that it doesn\'t work yet :/'})
-        except ValueError:
-            return jsonify({'error': 'Input Error',
-                            'error_msg': 'Please enter a Zip Code or Location(City, State) or (City, Country)'})
+        return jsonify({'error': 'Input Error',
+                        'error_msg': 'Please enter a Zip Code or Location(City, State) or (City, Country)'})
 
     geo_locate = GeoLocate()
     location_info = geo_locate.get_location_info(city, region)
@@ -126,8 +121,8 @@ def get_weather():
                     'error_msg': 'Missing data!'})
 
 
-@app.route('/api/locate', methods=['GET'])
-def locate():
+@app.route('/api/geolocate/coordinates', methods=['GET'])
+def geolocate_coordinates():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
 
@@ -138,6 +133,24 @@ def locate():
         return jsonify({'api_response': results})
     else:
         return jsonify({'error': 'Geolocation Error', 'error_msg': 'Could not find city based on your coordinates!'})
+
+
+@app.route('/api/geolocate/zip', methods=['GET'])
+def geolocate_zip():
+    zip_code = request.args.get('zip')
+    print(f'ZIP: {zip_code}')
+
+    geolocate = GeoLocate()
+    results = geolocate.zip_geocode(zip_code)
+
+    if results:
+        return jsonify({'api_response': results})
+    else:
+        return jsonify(
+            {
+                'error': 'Geolocation Error',
+                'error_msg': f'Could not find city based on the provided zip code [{zip_code}]'
+            })
 
 
 @main.errorhandler(404)
