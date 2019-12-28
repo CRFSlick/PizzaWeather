@@ -3,6 +3,7 @@ from App.modules.geolocate.geolocate import GeoLocate
 from App.modules.helper.helper import unix_to_12_hr_time
 from App.modules.helper.helper import get_local_time
 from App.modules.helper.helper import get_local_date
+from App.modules.helper.helper import image_to_base64
 from App.modules.api.api import API
 from App import app
 
@@ -71,12 +72,12 @@ def get_weather():
     precipitation = api.current_precipitation[0]['precipitation']
     humidity = api.current_humidity[0]['humidity']
     # uv_index = api.uv_index_today[0]['uv-index']
-    radar_base = radar_urls['base']
-    radar_precipitation = radar_urls['precipitation']
-    radar_temperature = radar_urls['temperature']
-    radar_pressure = radar_urls['pressure']
-    radar_clouds = radar_urls['clouds']
-    radar_wind = radar_urls['wind']
+    radar_base = image_to_base64(radar_urls['base'])
+    radar_precipitation = image_to_base64(radar_urls['precipitation'])
+    radar_temperature = image_to_base64(radar_urls['temperature'])
+    radar_pressure = image_to_base64(radar_urls['pressure'])
+    radar_clouds = image_to_base64(radar_urls['clouds'])
+    radar_wind = image_to_base64(radar_urls['wind'])
 
     data = {
         'lat': lat,
