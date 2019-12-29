@@ -1,7 +1,7 @@
 # PizzaWeather
 Live Version: [Coming Soon!]
 
-![Image of Yaktocat](App/resources/images/demo_img.PNG)
+![PizzaWeather Demo Image](App/resources/images/demo_img.PNG)
 
 # Resources Used
 
