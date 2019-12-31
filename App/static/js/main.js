@@ -52,9 +52,12 @@ $(document).ready(function () {
 		window.location.href = "/";
 	});
 
-	$('#searchInput').keypress(function (e) {
-		if (e.keyCode == 13)
+	$('#searchInput').keypress(function (event) {
+		if (event.keyCode == 13) {
+			event.preventDefault();
 			$('#searchButton').click();
+			return;
+		}
 	});
 
 	error_event = setTimeout(function () {
@@ -145,6 +148,7 @@ $(document).ready(function () {
 
 	$('#locateButton').click(function (event) {
 		event.preventDefault();
+		console.log('here');
 		getLocation();
 	});
 
@@ -271,8 +275,6 @@ function processForm() {
 function validateData(data) {
 	if (data.length > 0) {
 		var result = parseInt(data);
-		console.log('RESULT');
-		console.log(result);
 		if (!isNaN(result)) {
 			return 'zip';
 		}
@@ -332,6 +334,7 @@ function stopSpinner(button_name) {
 }
 
 function alertError(error, error_msg) {
+    hideElementsForSearch();
 	$('*').promise().done(function () {
 		clearTimeout(error_event);
 		error = `${error}: `;
@@ -362,7 +365,6 @@ function getLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(processLocation, error);
 	} else {
-		console.log('doesnt');
 		alertError('Geolocation Error', 'This feature is not supported by your browser.');
 
 	}
@@ -443,7 +445,6 @@ function startSearch() {
 	data_type = validateData($('#searchInput').val());
 
 	if (data_type) {
-		console.log(data_type);
 		if (data_type == 'location') {
 			processForm();
 		}
