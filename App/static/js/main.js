@@ -398,10 +398,10 @@ function processLocation(position) {
 		}).fail(function (jqXHR, textStatus) {
 			stopSpinner('search');
 			if (textStatus === 'timeout') {
-				alertError('Timeout Error: The server took too long to respond. Please try again!');
+				alertError('Timeout Error',  'The server took too long to respond. Please try again!');
 			}
 			else {
-				alertError('Internal Server Error: Something went wrong on our end. Please try again later.');
+				alertError('Internal Server Error', 'Something went wrong on our end. Please try again later.');
 			}
 		});
 }
@@ -432,10 +432,10 @@ function processLocationZip(zip_code) {
 		}).fail(function (jqXHR, textStatus) {
 			stopSpinner('search');
 			if (textStatus === 'timeout') {
-				alertError('Timeout Error: The server took too long to respond. Please try again!');
+				alertError('Timeout Error',  'The server took too long to respond. Please try again!');
 			}
 			else {
-				alertError('Internal Server Error: Something went wrong on our end. Please try again later.');
+				alertError('Internal Server Error', 'Something went wrong on our end. Please try again later.');
 			}
 		});
 }

@@ -55,7 +55,8 @@ def geolocate_coordinates():
     if results:
         return jsonify({'api_response': results})
     else:
-        return jsonify({'error': 'Geolocation Error', 'error_msg': 'Could not find city based on your coordinates!'})
+        return jsonify({'error': 'Geolocation Error',
+                        'error_msg': 'Could not find city based on your coordinates!'})
 
 
 @app.route('/api/geolocate/zip', methods=['GET'])
@@ -69,11 +70,8 @@ def geolocate_zip():
     if results:
         return jsonify({'api_response': results})
     else:
-        return jsonify(
-            {
-                'error': 'Geolocation Error',
-                'error_msg': f'Could not find city based on the provided zip code [{zip_code}]'
-            })
+        return jsonify({'error': 'Geolocation Error',
+                        'error_msg': f'Could not find city based on the provided zip code [{zip_code}]'})
 
 
 @main.errorhandler(404)
