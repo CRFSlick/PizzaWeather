@@ -38,7 +38,7 @@ def get_weather():
 
         city = city.capitalize()
         return jsonify({'error': 'Data Not Found Error',
-                        'error_msg': f'Could not find weather data for [{city}, {region}]'})
+                        'error_msg': f'Could not find weather data for [{city}, {region}]. Please try again.'})
 
     data = prepare_data(location_info)
     return jsonify({'api_response': data})
