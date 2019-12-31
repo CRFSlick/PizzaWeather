@@ -336,18 +336,21 @@ class GeoLocate(object):
         if r.status_code == 200:
             data = json.loads(r.text)
 
-            if data['results'][0]['locations'][0]:
-                city_name = data['results'][0]['locations'][0]['adminArea5'].strip()
-                region_name = data['results'][0]['locations'][0]['adminArea3'].strip()
-                country_name = data['results'][0]['locations'][0]['adminArea1'].strip()
-                lat = data['results'][0]['locations'][0]['latLng']['lat']
-                lon = data['results'][0]['locations'][0]['latLng']['lng']
+            count = 0
+            result_count = len(data['results'][0]['locations']) - 1
+
+            while count < result_count:
+                city_name = data['results'][0]['locations'][count]['adminArea5'].strip()
+                region_name = data['results'][0]['locations'][count]['adminArea3'].strip()
+                country_name = data['results'][0]['locations'][count]['adminArea1'].strip()
+                lat = data['results'][0]['locations'][count]['latLng']['lat']
+                lon = data['results'][0]['locations'][count]['latLng']['lng']
 
                 # DEBUG OUTPUT
                 # print(data['results'][0]['locations'])
-                # print(f'{city_name}')
-                # print(f'{region_name}')
-                # print(f'{country_name}')
+                print(f'{city_name}')
+                print(f'{region_name}')
+                print(f'{country_name}')
 
                 if city_name != '' and region_name != '' and country_name != '':
 
@@ -357,3 +360,5 @@ class GeoLocate(object):
                     else:
                         return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
                                 'display_name': f'{city_name}, {country_name}', 'lat': lat, 'lon': lon}
+
+                count += 1
