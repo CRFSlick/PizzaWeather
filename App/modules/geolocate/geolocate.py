@@ -337,7 +337,7 @@ class GeoLocate(object):
             data = json.loads(r.text)
 
             count = 0
-            result_count = len(data['results'][0]['locations']) - 1
+            result_count = len(data['results'][0]['locations'])
 
             while count < result_count:
                 city_name = data['results'][0]['locations'][count]['adminArea5'].strip()
@@ -347,18 +347,14 @@ class GeoLocate(object):
                 lon = data['results'][0]['locations'][count]['latLng']['lng']
 
                 # DEBUG OUTPUT
-                # print(data['results'][0]['locations'])
+                print(data['results'][0]['locations'])
                 print(f'{city_name}')
                 print(f'{region_name}')
                 print(f'{country_name}')
 
                 if city_name != '' and region_name != '' and country_name != '':
-
                     if country_name == 'US':
                         return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
                                 'display_name': f'{city_name}, {region_name}', 'lat': lat, 'lon': lon}
-                    else:
-                        return {'city_name': city_name, 'region_name': region_name, 'country_name': country_name,
-                                'display_name': f'{city_name}, {country_name}', 'lat': lat, 'lon': lon}
 
                 count += 1
