@@ -3,6 +3,7 @@ from datetime import datetime
 from App import app
 import requests
 import base64
+import os
 
 
 def prepare_data(location_info):
@@ -145,3 +146,23 @@ def image_to_base64(image_url):
     if r.status_code == 200:
         image_data = base64.b64encode(r.content).decode('UTF-8')
         return image_data
+
+
+def determine_slash_type():
+    """
+    Gets the right type of slash for compatibility between linux/mac/windows
+
+    Returns:
+        slash_type
+    """
+    current_path = os.path.dirname(__file__)
+    slash_type = None
+
+    if '\\' in current_path:
+        slash_type = '\\'
+    elif '/' in current_path:
+        slash_type = '/'
+    else:
+        slash_type = '/'
+
+    return slash_type

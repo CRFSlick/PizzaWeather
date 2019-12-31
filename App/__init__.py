@@ -1,11 +1,13 @@
+from App.modules.helper.helper import determine_slash_type
 from flask import Flask
 import json
 
 app = Flask(__name__)
+slash = determine_slash_type()
 
 
 class Config:
-    with open(f'{app.root_path}\config\config.json') as config_file:
+    with open(f'{app.root_path}{slash}config{slash}config.json') as config_file:
         config = json.load(config_file)
 
     OPENWEATHERMAP_API_KEY = config.get('openweathermap_api_key')
