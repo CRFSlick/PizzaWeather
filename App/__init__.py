@@ -1,11 +1,15 @@
-from App.modules.helper.helper import determine_slash_type
 from flask import Flask
 import json
 
+# Initialize the application
 app = Flask(__name__)
+
+# Determine the type of slash this OS uses
+from App.modules.helper.helper import determine_slash_type
 slash = determine_slash_type()
 
 
+# Get configuration
 class Config:
     with open(f'{app.root_path}{slash}config{slash}config.json') as config_file:
         config = json.load(config_file)
