@@ -347,10 +347,10 @@ class GeoLocate(object):
                 lon = data['results'][0]['locations'][count]['latLng']['lng']
 
                 # DEBUG OUTPUT
-                print(data['results'][0]['locations'])
-                print(f'{city_name}')
-                print(f'{region_name}')
-                print(f'{country_name}')
+                # print(data['results'][0]['locations'])
+                # print(f'{city_name}')
+                # print(f'{region_name}')
+                # print(f'{country_name}')
 
                 if city_name != '' and region_name != '' and country_name != '':
                     if country_name == 'US':

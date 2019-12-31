@@ -148,7 +148,6 @@ $(document).ready(function () {
 
 	$('#locateButton').click(function (event) {
 		event.preventDefault();
-		console.log('here');
 		getLocation();
 	});
 
