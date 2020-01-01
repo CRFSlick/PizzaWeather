@@ -143,9 +143,17 @@ def image_to_base64(image_url):
         image_url (str)
     """
     r = requests.get(image_url)
+
     if r.status_code == 200:
         image_data = base64.b64encode(r.content).decode('UTF-8')
-        return image_data
+    else:
+        root = app.root_path
+        slash = determine_slash_type()
+        placeholder_image_name = 'image_not_found.png'
+        with open(f'{root}{slash}static{slash}images{slash}{placeholder_image_name}', 'rb') as placeholder:
+            image_data = base64.b64encode(placeholder.read()).decode('UTF-8')
+
+    return image_data
 
 
 def determine_slash_type():
