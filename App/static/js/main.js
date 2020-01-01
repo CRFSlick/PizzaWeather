@@ -464,28 +464,28 @@ function error(err) {
 
 function kelvinToCelcius(kelvin, round = null) {
 	// T(°C) = T(K) - 273.15
-	if (!round) { round = 2 };
+	if (round == null) { round = 2 };
 	let celcius = (kelvin - 273.15).toFixed(round);
 	return celcius
 }
 
 function kelvinToFahrenheit(kelvin, round = null) {
 	// T(°F) = T(K) × 9/5 - 459.67
-	if (!round) { round = 2 };
+	if (round == null) { round = 2 };
 	let fahrenheit = (kelvin * 9 / 5 - 459.67).toFixed(round);
 	return fahrenheit
 }
 
 function metersPerSecondToMilesPerHour(metersPerSecond, round = null) {
 	// miles per hour = meters per second × 2.236936
-	if (!round) { round = 2 };
+	if (round == null) { round = 2 };
 	let milesPerHour = (metersPerSecond * 2.236936).toFixed(round);
 	return milesPerHour;
 }
 
 function millimetersToInches(millimeters, round = null) {
 	// d(″) = d(mm) / 25.4
-	if (!round) { round = 2 };
+	if (round == null) { round = 2 };
 	let inches = (millimeters / 25.4).toFixed(round);
 	return inches.toString() + "";
 }
@@ -493,7 +493,7 @@ function millimetersToInches(millimeters, round = null) {
 function updateData(api_response) {
 	if (metric) {
 		var temp = kelvinToCelcius(api_response.temperature).toString() + " °C";
-		var temp_rounded = kelvinToCelcius(api_response.temperature_rounded, 1).toString() + " °C";
+		var temp_rounded = kelvinToCelcius(api_response.temperature_rounded, 0).toString() + " °C";
 		var temp_average = kelvinToCelcius(api_response.temperature_average).toString() + " °C";
 		var temp_high = kelvinToCelcius(api_response.temperature_high).toString() + " °C";
 		var temp_low = kelvinToCelcius(api_response.temperature_low).toString() + " °C";
@@ -505,7 +505,7 @@ function updateData(api_response) {
 
 	else if (!metric) {
 		var temp = kelvinToFahrenheit(api_response.temperature).toString() + " °F";
-		var temp_rounded = kelvinToFahrenheit(api_response.temperature_rounded, 1).toString() + " °F";;
+		var temp_rounded = kelvinToFahrenheit(api_response.temperature_rounded, 0).toString() + " °F";;
 		var temp_average = kelvinToFahrenheit(api_response.temperature_average).toString() + " °F";;
 		var temp_high = kelvinToFahrenheit(api_response.temperature_high).toString() + " °F";;
 		var temp_low = kelvinToFahrenheit(api_response.temperature_low).toString() + " °F";;
@@ -552,7 +552,7 @@ function displayData(api_response) {
 		var weather_description = upperCaseFirstLetter(api_response.weather_description);
 		var weather_icon_url = api_response.weather_icon_url;
 		var temp = kelvinToCelcius(api_response.temperature).toString() + " °C";
-		var temp_rounded = kelvinToCelcius(api_response.temperature_rounded, 1).toString() + " °C";
+		var temp_rounded = kelvinToCelcius(api_response.temperature_rounded, 0).toString() + " °C";
 		var temp_average = kelvinToCelcius(api_response.temperature_average).toString() + " °C";
 		var temp_high = kelvinToCelcius(api_response.temperature_high).toString() + " °C";
 		var temp_low = kelvinToCelcius(api_response.temperature_low).toString() + " °C";
@@ -586,7 +586,7 @@ function displayData(api_response) {
 		var weather_description = upperCaseFirstLetter(api_response.weather_description);
 		var weather_icon_url = api_response.weather_icon_url;
 		var temp = kelvinToFahrenheit(api_response.temperature).toString() + " °F";
-		var temp_rounded = kelvinToFahrenheit(api_response.temperature_rounded, 1).toString() + " °F";;
+		var temp_rounded = kelvinToFahrenheit(api_response.temperature_rounded, 0).toString() + " °F";;
 		var temp_average = kelvinToFahrenheit(api_response.temperature_average).toString() + " °F";;
 		var temp_high = kelvinToFahrenheit(api_response.temperature_high).toString() + " °F";;
 		var temp_low = kelvinToFahrenheit(api_response.temperature_low).toString() + " °F";;

@@ -236,7 +236,7 @@ class API(object):
         return main
 
     @property
-    def current_temperature_average(self):
+    def current_temperature(self):
         """
         Gets current temperature average
 
@@ -290,6 +290,25 @@ class API(object):
             fahrenheit = round(self.kelvin_to_fahrenheit(kelvin), 2)
             main[day] = {'datetime': dt, 'celsius': f'{celsius}', 'fahrenheit':
                 f'{fahrenheit}', 'kelvin': f'{kelvin}'}
+        return main
+
+    @property
+    def current_temperature_average(self):
+        """
+        Gets current temperature average
+
+        Returns:
+            main (dict)
+        """
+        main = {}
+        data = self._current_obj.temperature()
+        for day in data:
+            dt = data[day][0]
+            kelvin = round(data[day][1][3], 2)
+            celsius = round(self.kelvin_to_celsius(kelvin), 2)
+            fahrenheit = round(self.kelvin_to_fahrenheit(kelvin), 2)
+            main[day] = {'datetime': dt, 'celsius': f'{celsius}', 'fahrenheit':
+                f'{fahrenheit}', 'kelvin':f'{kelvin}'}
         return main
 
     @property

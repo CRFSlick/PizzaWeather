@@ -260,7 +260,8 @@ class Current(object):
                 temp = data['main']['temp']
                 temp_min = data['main']['temp_min']
                 temp_max = data['main']['temp_max']
-                temperature_dict[0] = [dt, [temp, temp_min, temp_max]]
+                temp_average = (temp_min + temp_max) / 2
+                temperature_dict[0] = [dt, [temp, temp_min, temp_max, temp_average]]
                 return temperature_dict
             else:
                 raise Exception(f'API error! | Response Code: {data["cod"]} | Message: {data["message"]}')
