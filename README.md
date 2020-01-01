@@ -1,5 +1,5 @@
 # PizzaWeather
-Live Version: [Coming Soon!]
+Live Version: http://pizzaweather.slicklabz.com/
 
 ![PizzaWeather Demo Image](App/static/images/demo_img.PNG)
 
