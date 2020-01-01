@@ -173,51 +173,51 @@ $(document).ready(function () {
 	});
 
 	$('#info-temp').mouseenter(function () {
-		$('#info-temp').find('#info-label-temp').fadeIn(100);
+		$('#info-temp').find('#info-label-temp').fadeIn(0);
 	});
 
 	$('#info-temp').mouseleave(function () {
-		$('#info-temp').find('#info-label-temp').fadeOut(100);
+		$('#info-temp').find('#info-label-temp').fadeOut(0);
 	});
 
 	$('#info-cloud').mouseenter(function () {
-		$('#info-cloud').find('#info-label-cloud').fadeIn(100);
+		$('#info-cloud').find('#info-label-cloud').fadeIn(0);
 	});
 
 	$('#info-cloud').mouseleave(function () {
-		$('#info-cloud').find('#info-label-cloud').fadeOut(100);
+		$('#info-cloud').find('#info-label-cloud').fadeOut(0);
 	});
 
 	$('#info-precipitation').mouseenter(function () {
-		$('#info-precipitation').find('#info-label-precipitation').fadeIn(100);
+		$('#info-precipitation').find('#info-label-precipitation').fadeIn(0);
 	});
 
 	$('#info-precipitation').mouseleave(function () {
-		$('#info-precipitation').find('#info-label-precipitation').fadeOut(100);
+		$('#info-precipitation').find('#info-label-precipitation').fadeOut(0);
 	});
 
 	$('#info-wind').mouseenter(function () {
-		$('#info-wind').find('#info-label-wind').fadeIn(100);
+		$('#info-wind').find('#info-label-wind').fadeIn(0);
 	});
 
 	$('#info-wind').mouseleave(function () {
-		$('#info-wind').find('#info-label-wind').fadeOut(100);
+		$('#info-wind').find('#info-label-wind').fadeOut(0);
 	});
 
 	$('#info-uv').mouseenter(function () {
-		$('#info-uv').find('#info-label-uv').fadeIn(100);
+		$('#info-uv').find('#info-label-uv').fadeIn(0);
 	});
 
 	$('#info-uv').mouseleave(function () {
-		$('#info-uv').find('#info-label-uv').fadeOut(100);
+		$('#info-uv').find('#info-label-uv').fadeOut(0);
 	});
 
 	$('#info-humidity').mouseenter(function () {
-		$('#info-humidity').find('#info-label-humidity').fadeIn(100);
+		$('#info-humidity').find('#info-label-humidity').fadeIn(0);
 	});
 
 	$('#info-humidity').mouseleave(function () {
-		$('#info-humidity').find('#info-label-humidity').fadeOut(100);
+		$('#info-humidity').find('#info-label-humidity').fadeOut(0);
 	});
 });
 
