@@ -312,7 +312,7 @@ function showWeatherCard() {
 function startSpinner(button_name) {
 	if (button_name == 'search') {
 		var width = $('#searchButton').width();
-		$('#searchButton').html('<i class="fas fa-spinner fa-spin h4 text-body"></i>');
+		$('#searchButton').html('<i style="text-align: center;" class="fas fa-spinner fa-spin h4 text-body"></i>');
 		$('#searchButton').width(width);
 	}
 
